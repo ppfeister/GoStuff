@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/nicksnyder/go-i18n/v2/i18n"
-	"github.com/ppfeister/GoStuff/messages"
+	"github.com/ppfeister/gostuff/messages"
 	"golang.org/x/text/language"
 )
 
