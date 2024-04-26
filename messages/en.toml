@@ -1,3 +1,12 @@
+[usage_debugFlag]
+other = "dump debugging info to stdout"
+
+[usage_concurrency]
+other = "specify number of concurrent threads/workers"
+
+[usage_pairedManifest]
+other = "use a manifest rather than stdin"
+
 [Err_SinglePairCredQty]
 other = "Single credential-pair stuffing requires *two* parameters only"
 

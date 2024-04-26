@@ -10,15 +10,13 @@ import (
 )
 
 func main() {
+	messages.LoadMessages(language.English)
+
 	var num_workers uint
 	var manifest_uri_simple string
-	var manifest_uri_batteringram string
-	var debug bool
 	var verbosity uint
-	flag.UintVar(&num_workers, "t", 20, "set number of concurrent threads")
-	flag.StringVar(&manifest_uri_simple, "s", "", "use a simple manifest")
-	flag.StringVar(&manifest_uri_batteringram, "b", "", "use a grouped manifest (not recommended)")
-	flag.BoolVar(&debug, "d", false, "dump debugging info to stdout")
+	flag.UintVar(&num_workers, "t", 20, messages.Fetch(i18n.LocalizeConfig{MessageID: "usage_concurrency"}))
+	flag.StringVar(&manifest_uri_simple, "m", "", messages.Fetch(i18n.LocalizeConfig{MessageID: "usage_pairedManifest"}))
 	flag.UintVar(&verbosity, "verbosity", 1, "")
 	flag.Parse()
 	var single_target []string = flag.Args()
@@ -31,7 +29,7 @@ func main() {
 				MessageID: "Err_SinglePairCredQty",
 			}))
 		}
-		if manifest_uri_simple != "" || manifest_uri_batteringram != "" {
+		if manifest_uri_simple != "" && len(single_target) != 0 {
 			log.Fatal(messages.Fetch(i18n.LocalizeConfig{
 				MessageID: "Err_MixedCredTypes",
 			}))
