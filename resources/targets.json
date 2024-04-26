@@ -1,0 +1,23 @@
+{
+    "HackerRank": {
+        "request_url": "https://hackerrank.com/rest/auth/login",
+        "request_method": "POST",
+        "request_data": {
+            "login":"%%login%%",
+            "password":"%%password%%",
+            "remember_me":true,
+            "fallback":true
+        },
+        "validation_method": "message",
+        "validation_type": "negative",
+        "message": "Invalid login or password"
+    },
+    "Slides.com": {
+        "request_url": "https://slides.com/users/sign_in",
+        "request_method": "POST",
+        "request_data": "user[email]=%%login%%&user[password]=%%password%%&user[remember_me]=0&user[remember_me]=1",
+        "validation_method": "negative",
+        "validation_type": "message",
+        "message": "Log in | Slides"
+    }
+}
