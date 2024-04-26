@@ -1,4 +1,4 @@
-module github.com/ppfeister/GoStuff
+module github.com/ppfeister/gostuff
 
 go 1.21.8
 
