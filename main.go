@@ -6,6 +6,7 @@ import (
 
 	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"github.com/ppfeister/GoStuff/messages"
+	"golang.org/x/text/language"
 )
 
 func main() {
@@ -22,7 +23,7 @@ func main() {
 	flag.Parse()
 	var single_target []string = flag.Args()
 
-	//debugkit.SetVerbosity(uint8(verbosity))
+	messages.LoadMessages(language.English)
 
 	if len(single_target) > 0 {
 		if len(single_target) != 2 {
@@ -31,9 +32,9 @@ func main() {
 			}))
 		}
 		if manifest_uri_simple != "" || manifest_uri_batteringram != "" {
-			log.Fatal("Manifest can not be provided alongside single-pair creds")
+			log.Fatal(messages.Fetch(i18n.LocalizeConfig{
+				MessageID: "Err_MixedCredTypes",
+			}))
 		}
 	}
-
-	//debugkit.Out(debugkit.Severity["warn"], "Something fucked up!")
 }
