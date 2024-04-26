@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 
-	. "github.com/ppfeister/GoStuff/utils"
+	"github.com/ppfeister/GoStuff/debugkit"
 )
 
 func main() {
@@ -18,13 +18,13 @@ func main() {
 	flag.BoolVar(&debug, "d", false, "dump debugging info to stdout")
 	flag.UintVar(&verbosity, "verbosity", 1, "")
 	flag.Parse()
-	var single_target []string = flag.Args()
+	//var single_target []string = flag.Args()
 
-	var debugkit DebugKit = BuildDebugKit(uint8(verbosity))
+	debugkit.SetVerbosity(uint8(verbosity))
 
 	/*if len(single_target) > 0 {
 		fmt
 	}*/
 
-	debugkit.Print(debugkit, Severity["info"])
+	debugkit.Out(debugkit.Severity["warn"], "Something fucked up!")
 }
