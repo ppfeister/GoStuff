@@ -2,10 +2,12 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 
 	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"github.com/ppfeister/gostuff/messages"
+	utils "github.com/ppfeister/gostuff/utils/parsers"
 	"golang.org/x/text/language"
 )
 
@@ -28,4 +30,8 @@ func main() {
 			}))
 		}
 	}
+
+	var testing utils.Targets = utils.FetchManifest()
+
+	fmt.Printf("%v\n", testing)
 }

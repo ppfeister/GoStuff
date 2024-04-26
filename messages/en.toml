@@ -6,3 +6,6 @@ other = "specify number of concurrent threads/workers"
 
 [Err_SinglePairCredQty]
 other = "Single credential-pair stuffing requires *two* parameters only"
+
+[Err_UnableToLoadManifest]
+other = "Unable to load manifests. (Reason ::: {{.Error}})"
