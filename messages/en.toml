@@ -1,0 +1,5 @@
+[Err_SinglePairCredQty]
+other = "Single credential-pair stuffing requires *two* parameters only"
+
+[Err_MixedCredTypes]
+other = "Manifest can not be provided alongside single-pair creds"

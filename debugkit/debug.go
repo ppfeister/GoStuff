@@ -1,6 +1,8 @@
 package debugkit
 
-import "fmt"
+import (
+	"fmt"
+)
 
 var Severity = map[string]uint8{
 	"fatal": 0,

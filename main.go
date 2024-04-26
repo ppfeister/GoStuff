@@ -2,8 +2,10 @@ package main
 
 import (
 	"flag"
+	"log"
 
-	"github.com/ppfeister/GoStuff/debugkit"
+	"github.com/nicksnyder/go-i18n/v2/i18n"
+	"github.com/ppfeister/GoStuff/messages"
 )
 
 func main() {
@@ -18,13 +20,20 @@ func main() {
 	flag.BoolVar(&debug, "d", false, "dump debugging info to stdout")
 	flag.UintVar(&verbosity, "verbosity", 1, "")
 	flag.Parse()
-	//var single_target []string = flag.Args()
+	var single_target []string = flag.Args()
 
-	debugkit.SetVerbosity(uint8(verbosity))
+	//debugkit.SetVerbosity(uint8(verbosity))
 
-	/*if len(single_target) > 0 {
-		fmt
-	}*/
+	if len(single_target) > 0 {
+		if len(single_target) != 2 {
+			log.Fatal(messages.Fetch(i18n.LocalizeConfig{
+				MessageID: "Err_SinglePairCredQty",
+			}))
+		}
+		if manifest_uri_simple != "" || manifest_uri_batteringram != "" {
+			log.Fatal("Manifest can not be provided alongside single-pair creds")
+		}
+	}
 
-	debugkit.Out(debugkit.Severity["warn"], "Something fucked up!")
+	//debugkit.Out(debugkit.Severity["warn"], "Something fucked up!")
 }
