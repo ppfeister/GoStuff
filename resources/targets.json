@@ -2,22 +2,19 @@
     "standard": [
         {
             "name": "HackerRank",
-            "request_url": "https://hackerrank.com/rest/auth/login",
+            "request_url": "https://www.hackerrank.com/rest/auth/login",
             "request_method": "POST",
-            "request_data": {
-                "login":"%%login%%",
-                "password":"%%password%%",
-                "remember_me":true,
-                "fallback":true
-            },
+            "request_contentType": "application/json",
+            "request_data": "{\"login\":\"%%username%%\",\"password\":\"%%password%%\",\"remember_me\":true,\"fallback\":true}",
             "validation_method": "message",
-            "validation_type": "negative",
-            "message": "Invalid login or password"
+            "validation_type": "affirmative",
+            "message": "Authentication Successful"
         },
         {
             "name": "Slides.com",
             "request_url": "https://slides.com/users/sign_in",
             "request_method": "POST",
+            "request_contentType": "application/x-www-form-urlencoded",
             "request_data": "user[email]=%%login%%&user[password]=%%password%%&user[remember_me]=0&user[remember_me]=1",
             "validation_method": "negative",
             "validation_type": "message",

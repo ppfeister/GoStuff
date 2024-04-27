@@ -11,17 +11,25 @@ import (
 )
 
 type Targets struct {
-	Targets []target `json:"standard"`
+	Targets []Target `json:"standard"`
 }
 
-type target struct {
-	Name              string `json:"name"`
-	Url               string `json:"request_url"`
-	Method            string `json:"request_method"`
-	Data              string `json:"request_data"`
-	Validation_Method string `json:"validation_method"`
-	Validation_Type   string `json:"validation_type"`
-	Response_Message  string `json:"message"`
+type Target struct {
+	Name               string `json:"name"`
+	Url                string `json:"request_url"`
+	Method             string `json:"request_method"`
+	Data               string `json:"request_data"`
+	Validation_Method  string `json:"validation_method"`
+	Validation_Type    string `json:"validation_type"`
+	Validation_Message string `json:"message"`
+	Response_Data      response_data
+}
+
+type response_data struct {
+	Status   uint8
+	Headers  string
+	Data     string
+	Validity bool
 }
 
 var manifest_data Targets
